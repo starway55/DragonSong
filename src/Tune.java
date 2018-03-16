@@ -1,3 +1,5 @@
+import java.awt.event.KeyEvent;
+
 public enum Tune {
     /*
     低音
@@ -7,18 +9,18 @@ public enum Tune {
     最高音 1
      */
 
-    L1,
-    LU1,
-    L2,
-    LD3,
-    L3,
-    L4,
-    LU4,
-    L5,
-    LU5,
-    L6,
-    LD7,
-    L7,
+    L1 ("-1", ),
+    LU1 ("-#1"),
+    L2 ("-2"),
+    LD3 ("-b3"),
+    L3 ("-3"),
+    L4 ("-4"),
+    LU4 ("-#4"),
+    L5 ("-5"),
+    LU5 ("-#5"),
+    L6 ("-6"),
+    LD7 ("-b7"),
+    L7 ("-7"),
 
     M1,
     MU1,
@@ -47,5 +49,21 @@ public enum Tune {
     H7,
 
     HH1,
-    EMPTY
+    EMPTY;
+
+    private final String symbol;
+    private final KeyEvent key;
+
+    Tune(String symbol, KeyEvent key) {
+        this.symbol = symbol;
+        this.key = key;
+    }
+
+    public String getSymbol() {
+        return symbol;
+    }
+
+    public KeyEvent getKey() {
+        return key;
+    }
 }
