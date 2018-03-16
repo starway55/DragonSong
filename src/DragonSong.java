@@ -1,12 +1,12 @@
 // Main entry point
 
+import java.awt.*;
+
 public class DragonSong {
 
-    public void play() {
-    }
-
-    public static void main(String[] args) {
-        DragonSong dragonSong = new DragonSong();
-        dragonSong.play();
+    public static void main(String[] args) throws AWTException {
+        Player player = new Player();
+        player.addSong(String text);
+        player.play();
     }
 }

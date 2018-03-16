@@ -2,16 +2,14 @@ import java.awt.*;
 import java.util.*;
 
 
-public class Player {
+public class Player extends Robot{
     private ArrayList<Song> songs = new ArrayList<>();
-    private Robot performer;
 
     public Player() throws AWTException {
-        performer = new Robot();
     }
 
     public void addSong(String text) {
-        songs.add(new Song(text, performer));
+        songs.add(new Song(text));
     }
 
     public void removeSong(String sName) {
@@ -20,9 +18,12 @@ public class Player {
 
     public void play() {
         for(Song s: songs) {
-            s.begin();
+            ArrayList<Syllable> ls = s.getNextParagraph();
+            ls.forEach(this::pressKey);
         }
     }
 
+    private void pressKey(Syllable s) {
 
+    }
 }

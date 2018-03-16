@@ -25,6 +25,6 @@ public class Syllable {
     }
 
     public void play(){
-        
+
     }
 }
