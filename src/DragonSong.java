@@ -1,9 +1,8 @@
-
+// Main entry point
 
 public class DragonSong {
 
     public void play() {
-
     }
 
     public static void main(String[] args) {
