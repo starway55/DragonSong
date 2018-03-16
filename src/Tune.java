@@ -1,4 +1,5 @@
 import java.awt.event.KeyEvent;
+import java.security.Key;
 
 public enum Tune {
     /*
@@ -9,52 +10,52 @@ public enum Tune {
     最高音 1
      */
 
-    L1 ("-1", ),
-    LU1 ("-#1"),
-    L2 ("-2"),
-    LD3 ("-b3"),
-    L3 ("-3"),
-    L4 ("-4"),
-    LU4 ("-#4"),
-    L5 ("-5"),
-    LU5 ("-#5"),
-    L6 ("-6"),
-    LD7 ("-b7"),
-    L7 ("-7"),
+    L1 ("-1", KeyEvent.VK_A),
+    LU1 ("-#1", KeyEvent.VK_S),
+    L2 ("-2", KeyEvent.VK_D),
+    LD3 ("-b3", KeyEvent.VK_F),
+    L3 ("-3", KeyEvent.VK_G),
+    L4 ("-4", KeyEvent.VK_H),
+    LU4 ("-#4", KeyEvent.VK_J),
+    L5 ("-5", KeyEvent.VK_K),
+    LU5 ("-#5", KeyEvent.VK_L),
+    L6 ("-6", KeyEvent.VK_SEMICOLON),
+    LD7 ("-b7", KeyEvent.VK_QUOTE),
+    L7 ("-7", KeyEvent.VK_SLASH),
 
-    M1,
-    MU1,
-    M2,
-    MD3,
-    M3,
-    M4,
-    MU4,
-    M5,
-    MU5,
-    M6,
-    MD7,
-    M7,
+    M1 ("1", KeyEvent.VK_Q),
+    MU1 ("#1", KeyEvent.VK_W),
+    M2 ("2", KeyEvent.VK_E),
+    MD3 ("b3", KeyEvent.VK_R),
+    M3 ("3", KeyEvent.VK_T),
+    M4 ("4", KeyEvent.VK_Y),
+    MU4 ("#4", KeyEvent.VK_U),
+    M5 ("5", KeyEvent.VK_I),
+    MU5 ("#5", KeyEvent.VK_O),
+    M6 ("6", KeyEvent.VK_P),
+    MD7 ("b7", KeyEvent.VK_OPEN_BRACKET),
+    M7 ("7", KeyEvent.VK_CLOSE_BRACKET),
 
-    H1,
-    HU1,
-    H2,
-    HD3,
-    H3,
-    H4,
-    HU4,
-    H5,
-    HU5,
-    H6,
-    HD7,
-    H7,
+    H1 ("+1", KeyEvent.VK_1),
+    HU1 ("+#1", KeyEvent.VK_1),
+    H2 ("+2", KeyEvent.VK_1),
+    HD3 ("+b3", KeyEvent.VK_1),
+    H3 ("+3", KeyEvent.VK_1),
+    H4 ("+4", KeyEvent.VK_1),
+    HU4 ("+#4", KeyEvent.VK_1),
+    H5 ("+5", KeyEvent.VK_1),
+    HU5 ("+#5", KeyEvent.VK_1),
+    H6 ("+6", KeyEvent.VK_1),
+    HD7 ("+b7", KeyEvent.VK_1),
+    H7 ("+7", KeyEvent.VK_1),
 
-    HH1,
-    EMPTY;
+    HH1 ("++1", KeyEvent.VK_PAGE_DOWN),
+    EMPTY ("P", -1);
 
     private final String symbol;
-    private final KeyEvent key;
+    private final int key;
 
-    Tune(String symbol, KeyEvent key) {
+    Tune(String symbol, int key) {
         this.symbol = symbol;
         this.key = key;
     }
@@ -63,7 +64,7 @@ public enum Tune {
         return symbol;
     }
 
-    public KeyEvent getKey() {
+    public int getKey() {
         return key;
     }
 }
