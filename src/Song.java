@@ -37,8 +37,7 @@ public class Song {
 }
 
 class SongReader {
-    Matcher m;
-    HashMap<String, Tune> tuneDict = new HashMap<>();
+    static HashMap<String, Tune> tuneDict = new HashMap<>();
 
     public SongReader() {
         for(Tune t: Tune.values()) {
@@ -46,8 +45,8 @@ class SongReader {
         }
     }
 
-    public ArrayList<Syllable> read(String regex, String text) {
-        m = Pattern.compile(regex).matcher(text);
+    public static ArrayList<Syllable> read(String regex, String text) {
+        Matcher m = Pattern.compile(regex).matcher(text);
         ArrayList<Syllable> sl = new ArrayList<>();
         while(m.find()) {
             sl.add(new Syllable(tuneDict.get(m.group()), null));

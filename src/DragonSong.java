@@ -8,7 +8,7 @@ public class DragonSong {
         String text = "a great song";
 
         Player player = new Player();
-        player.addSong(text);
+        player.addSong(text, 60);
         player.play();
     }
 }
