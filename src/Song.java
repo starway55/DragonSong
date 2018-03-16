@@ -1,37 +1,21 @@
-import java.awt.Robot;
 import java.util.*;
 
 public class Song {
     private int speed;
     private String text;
-    private List<Paragraph> paragraphs;
+    private String[] paragraphs;
+    private int idx;
 
-    public Song(int speed, List<Paragraph> paragraphs){
-        this.speed = speed;
-        this.paragraphs = paragraphs;
-    }
-
-    public Song(String text, Robot performer) {
+    public Song(String text, int speed) {
         this.text = text;
-        this.player = performer;
+        this.speed = speed;
+        this.paragraphs = text.split("@{1}");
     }
 
-    public void begin() {
-<<<<<<< HEAD
-    }
+    public ArrayList<Syllable> getNextParagraph() {
+        ArrayList<Syllable> sl = new ArrayList<>();
 
-    private void pressKey() {
-=======
-        for(Paragraph p : paragraphs){
-            p.play();
-        }
-    }
 
-    public void playChap (int index){
-        if(index == 0){
-            paragraphs.get(0).play();
-        }
-        paragraphs.get(index-1).play();
->>>>>>> 2c75996d610ee9ac3902acc274ff4026c3536de8
+        return sl;
     }
 }
