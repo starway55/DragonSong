@@ -12,8 +12,8 @@ public class Player extends Robot{
     }
 
 
-    public void addSong(String text) {
-        songs.add(new Song(text));
+    public void addSong(String text, int speed) {
+        songs.add(new Song(text, speed));
     }
 
     public void removeSong(String sName) {
