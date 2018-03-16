@@ -15,6 +15,14 @@ public class Song {
         this.paragraphs = text.split("@{1}");
     }
 
+    public int getSpeed() {
+        return speed;
+    }
+
+    public String getText() {
+        return text;
+    }
+
     public boolean hasNextParagraph() {
         if(idx >= paragraphs.length) return false;
         return true;
