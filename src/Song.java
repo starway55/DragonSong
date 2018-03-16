@@ -1,10 +1,13 @@
+import java.awt.event.KeyEvent;
 import java.util.*;
+import java.util.regex.*;
 
 public class Song {
     private int speed;
     private String text;
     private String[] paragraphs;
     private int idx;
+    private static SongReader songReader = new SongReader();
 
     public Song(String text, int speed) {
         this.text = text;
@@ -12,10 +15,36 @@ public class Song {
         this.paragraphs = text.split("@{1}");
     }
 
+    public boolean hasNextParagraph() {
+        if(idx >= paragraphs.length) return false;
+        return true;
+    }
+
     public ArrayList<Syllable> getNextParagraph() {
-        ArrayList<Syllable> sl = new ArrayList<>();
-
-
+        ArrayList<Syllable> sl;
+        sl = songReader.read("regex", paragraphs[idx]);
+        idx++;
         return sl;
     }
+}
+
+class SongReader {
+    Matcher m;
+    HashMap<String, Tune> tuneDict = new HashMap<>();
+
+    public SongReader() {
+        for(Tune t: Tune.values()) {
+            tuneDict.put(t.getSymbol(), t);
+        }
+    }
+
+    public ArrayList<Syllable> read(String regex, String text) {
+        m = Pattern.compile(regex).matcher(text);
+        ArrayList<Syllable> sl = new ArrayList<>();
+        while(m.find()) {
+            sl.add(new Syllable(tuneDict.get(m.group()), null));
+        }
+        return sl;
+    }
+
 }
