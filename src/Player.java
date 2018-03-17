@@ -1,6 +1,7 @@
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.*;
+import java.util.List;
 
 
 public class Player extends Robot{
@@ -8,6 +9,7 @@ public class Player extends Robot{
 
     private Float currentSpeed;
     private int keyboardDelay = 20;
+    private List<Syllable> toPlay;
 
     public Player(Float currentSpeed, int keyboardDelay) throws AWTException {
         this.currentSpeed = currentSpeed;
@@ -15,9 +17,9 @@ public class Player extends Robot{
     }
 
 
-    public void addSong(String text, Float speed) {
-        songs.add(new Song(text, speed));
-    }
+//    public void addSong(String text, Float speed) {
+//        songs.add(new Song(text, speed));
+//    }
 
     public void addSong(Song song){
         songs.add(song);
@@ -28,24 +30,49 @@ public class Player extends Robot{
     }
 
     public void play(Song song){
-        ArrayList<Syllable> syllables = new ArrayList<>();
 
         this.currentSpeed = song.getSpeed();
-        
-
-    }
-
-    public void play() {
-        ArrayList<Syllable> ls = new ArrayList<>();
-        for(Song s: songs) {
-            this.currentSpeed = s.getSpeed();
-            if(s.hasNextParagraph()) ls = s.getNextParagraph();
-            else break;
-            for(Syllable sy: ls) {
-                pressKey(sy);
-            }
+        this.toPlay = song.getSyllables();
+        for(Syllable sy: toPlay) {
+            pressKey(sy);
         }
     }
+
+    public void play(Paragraph paragraph){
+        this.currentSpeed = paragraph.getSpeed();
+        this.toPlay = paragraph.getSyllables();
+        for(Syllable sy: toPlay) {
+            pressKey(sy);
+        }
+    }
+
+    public void play(Sentence sentence){
+        this.currentSpeed = sentence.getSpeed();
+        this.toPlay = sentence.getSyllables();
+        for(Syllable sy: toPlay) {
+            pressKey(sy);
+        }
+    }
+
+    public void play(String string, Float speed){
+        this.currentSpeed = speed;
+        this.toPlay = SongReader.read(string);
+        for(Syllable sy: toPlay) {
+            pressKey(sy);
+        }
+    }
+
+//    public void play() {
+//        ArrayList<Syllable> ls = new ArrayList<>();
+//        for(Song s: songs) {
+//            this.currentSpeed = s.getSpeed();
+//            if(s.hasNextParagraph()) ls = s.getNextParagraph();
+//            else break;
+//            for(Syllable sy: ls) {
+//                pressKey(sy);
+//            }
+//        }
+//    }
 
     public void pressKey(Syllable s) {
 

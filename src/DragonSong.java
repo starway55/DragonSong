@@ -8,16 +8,19 @@ public class DragonSong {
 
 //        String text = "[3.16][5.16][6.16][3.16][5.16][6.16]";
 
-        SongList songList = new SongList();
+//        SongList songList = new SongList();
 
-        Song tongHua = songList.buildTongHua();
-
-        Player diao = new Player(100.0f, 20);
-        diao.addSong(tongHua);
+//        Song tongHua = songList.buildTongHua();
 
         delay(3000);
 
-        diao.play();
+        Player diao = new Player(100.0f, 20);
+
+        TheOriginalSong theSong = new TheOriginalSong();
+        diao.play(theSong);
+
+
+
 //        for(Tune t: Tune.values()) {
 //            System.out.println(t.getSymbol());
 //        }
