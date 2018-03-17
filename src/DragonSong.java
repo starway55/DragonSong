@@ -6,11 +6,14 @@ public class DragonSong {
 
     public static void main(String[] args) throws AWTException {
 
-        String text = "[-1.1][#1.12][*3.1][+5.3][2.14][+6.16]";
+//        String text = "[3.16][5.16][6.16][3.16][5.16][6.16]";
 
+        SongList songList = new SongList();
+
+        Song tongHua = songList.buildTongHua();
 
         Player diao = new Player(100.0f, 20);
-        diao.addSong(text, 100.0f);
+        diao.addSong(tongHua);
 
         delay(3000);
 
