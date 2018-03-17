@@ -24,9 +24,11 @@ public class Player extends Robot{
     }
 
     public void play() {
+        ArrayList<Syllable> ls = new ArrayList<>();
         for(Song s: songs) {
             this.currentSpeed = s.getSpeed();
-            ArrayList<Syllable> ls = s.getNextParagraph();
+            if(s.hasNextParagraph()) ls = s.getNextParagraph();
+            else break;
             for(Syllable sy: ls) {
                 pressKey(sy);
             }

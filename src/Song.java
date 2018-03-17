@@ -19,14 +19,6 @@ public class Song {
         return speed;
     }
 
-    public String getText() {
-        return text;
-    }
-
-    public String getCurrent() {
-        return paragraphs[idx++];
-    }
-
     public boolean hasNextParagraph() {
         if(idx >= paragraphs.length) return false;
         return true;
