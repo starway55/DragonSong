@@ -35,13 +35,20 @@ public class Player extends Robot{
 
         Float afterKeyPress = msPerSyllable - 2 * keyboardDelay;
 
-        this.keyPress(KeyEvent.VK_ALT );
-        delay(20);
-        this.keyPress(s.getTune().getKey());
+        if(s.getTune().getKey() == -1){
+            delay(keyboardDelay); // When a break is passed in
+            delay(keyboardDelay); // Only the delay of two key presses for place holder. No actual key pressed
+        } else {
+            this.keyPress(KeyEvent.VK_ALT );
+            delay(keyboardDelay);
+            this.keyPress(s.getTune().getKey());
 
-        this.keyRelease(s.getTune().getKey());
-        delay(20);
-        this.keyRelease(KeyEvent.VK_ALT );
+            this.keyRelease(s.getTune().getKey());
+            delay(keyboardDelay);
+            this.keyRelease(KeyEvent.VK_ALT );
+        }
+
+
 
     }
 
