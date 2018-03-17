@@ -7,7 +7,6 @@ public class Song {
     private String text;
     private String[] paragraphs;
     private int idx;
-    public String syntax = "";
 
     public Song(String text, int speed) {
         this.text = text;
@@ -23,10 +22,6 @@ public class Song {
         return text;
     }
 
-    public void setSongSyntax(String regex) {
-        this.syntax = regex;
-    }
-
     public String getCurrent() {
         return paragraphs[idx++];
     }
@@ -38,31 +33,42 @@ public class Song {
 
     public ArrayList<Syllable> getNextParagraph() {
         ArrayList<Syllable> sl;
-        sl = SongReader.read(syntax, paragraphs[idx]);
+        sl = SongReader.read(paragraphs[idx]);
         idx++;
         return sl;
     }
 }
 
 class SongReader {
+    static final String SYNTAX = "\\[(\\+|-)?(\\#|b)?([1-7])(\\.)([0-9]{1,2})\\]";
     static HashMap<String, Tune> tuneDict = new HashMap<>();
+    static HashMap<String, Type> typeDict = new HashMap<>();
 
     public SongReader() {
         for(Tune t: Tune.values()) {
             tuneDict.put(t.getSymbol(), t);
         }
+        for(Type t: Type.values()) {
+            typeDict.put(t.getKey(), t);
+        }
     }
 
-    public static ArrayList<Syllable> read(String regex, String text) {
-        if(regex.equals("")) {
-            System.out.println("No useful syntax.");
-            System.exit(1);
-        }
+    public static ArrayList<Syllable> read(String text) {
 
-        Matcher m = Pattern.compile(regex).matcher(text);
+        Matcher m = Pattern.compile(SYNTAX).matcher(text);
         ArrayList<Syllable> sl = new ArrayList<>();
         while(m.find()) {
-            sl.add(new Syllable(tuneDict.get(m.group()), null));
+            StringBuilder tune = new StringBuilder(), type = new StringBuilder();
+            int i = 1;
+            for(; i <= m.groupCount(); i++) {
+                if(m.group(i) != null && m.group(i).equals(".")) break;
+                if(m.group(i) != null) tune.append(m.group(i));
+            }
+            for(i++ ; i <= m.groupCount(); i ++ ) {
+                if(m.group(i) != null) type.append(m.group(i));
+            }
+//            System.out.println(tune + " " + type);
+            sl.add(new Syllable(tuneDict.get(tune), typeDict.get(type)));
         }
         return sl;
     }
