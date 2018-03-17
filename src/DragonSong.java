@@ -7,9 +7,6 @@ public class DragonSong {
     public static void main(String[] args) throws AWTException {
         String text = "[-1.1][#1.12][*3.1]@[+5.3][b2.14][+b6.16]";
 
-        Song s = new Song(text, 100);
-        if(s.hasNextParagraph()) s.getNextParagraph();
-        if(s.hasNextParagraph()) s.getNextParagraph();
 
     }
 }
