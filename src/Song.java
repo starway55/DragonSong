@@ -12,7 +12,7 @@ public class Song {
     public Song(String text, Float speed) {
         this.text = text;
         this.speed = speed;
-        this.paragraphs = text.split("@{1}");
+        this.paragraphs = text.split("@");
     }
 
     public Float getSpeed() {
@@ -49,7 +49,9 @@ class SongReader {
             for(i++ ; i <= m.groupCount(); i ++ ) {
                 if(m.group(i) != null) type.append(m.group(i));
             }
-            sl.add(new Syllable(Tune.get(tune.toString()), Type.get(type.toString())));
+            if(Tune.get(tune.toString()) != null && Type.get(type.toString()) != null)
+                sl.add(new Syllable(Tune.get(tune.toString()), Type.get(type.toString())));
+            else System.out.println("bad token: " + m.group());
         }
         return sl;
     }
