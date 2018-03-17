@@ -29,7 +29,7 @@ public class Player extends Robot{
         }
     }
 
-    private void pressKey(Syllable s) {
+    public void pressKey(Syllable s) {
 
         Float msPerSyllable = 60.0f / currentSpeed;
 
@@ -48,7 +48,10 @@ public class Player extends Robot{
             this.keyRelease(KeyEvent.VK_ALT );
         }
 
+        // The actual time in milliseconds that player should delay per whole syllable
+        int delayTime = 60 / currentSpeed * 1000 - 2 * keyboardDelay;
 
+        delay( Math.round(delayTime * s.getType().getDelay()) );
 
     }
 
