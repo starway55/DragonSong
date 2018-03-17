@@ -7,7 +7,7 @@ public class Song {
     private String text;
     private String[] paragraphs;
     private int idx;
-    private static SongReader songReader = new SongReader();
+    public String syntax = "";
 
     public Song(String text, int speed) {
         this.text = text;
@@ -23,6 +23,14 @@ public class Song {
         return text;
     }
 
+    public void setSongSyntax(String regex) {
+        this.syntax = regex;
+    }
+
+    public String getCurrent() {
+        return paragraphs[idx++];
+    }
+
     public boolean hasNextParagraph() {
         if(idx >= paragraphs.length) return false;
         return true;
@@ -30,7 +38,7 @@ public class Song {
 
     public ArrayList<Syllable> getNextParagraph() {
         ArrayList<Syllable> sl;
-        sl = songReader.read("regex", paragraphs[idx]);
+        sl = SongReader.read(syntax, paragraphs[idx]);
         idx++;
         return sl;
     }
@@ -46,6 +54,11 @@ class SongReader {
     }
 
     public static ArrayList<Syllable> read(String regex, String text) {
+        if(regex.equals("")) {
+            System.out.println("No useful syntax.");
+            System.exit(1);
+        }
+
         Matcher m = Pattern.compile(regex).matcher(text);
         ArrayList<Syllable> sl = new ArrayList<>();
         while(m.find()) {

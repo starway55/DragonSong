@@ -1,10 +1,10 @@
 import java.util.List;
 
-public class Paragraph {
+public class Paragraph extends Song{
     private List<Syllable> syllables;
 
-    public Paragraph (List<Syllable> syllables){
-        this.syllables = syllables;
+    public Paragraph (String text, int speed) {
+        super(text, speed);
     }
 
     public void play(){
