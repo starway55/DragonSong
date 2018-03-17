@@ -33,7 +33,7 @@ public class Song {
 }
 
 class SongReader {
-    static final String SYNTAX = "\\[(\\+|-){0,2}(\\#|b)?([1-7P])(\\.)([0-9]{1,2})\\]";
+    static final String SYNTAX = "\\[(\\+|-|\\+\\+)?(#|b)?([1-7P])(\\.)([0-9]{1,2})\\]";
 
     public static ArrayList<Syllable> read(String text) {
 
