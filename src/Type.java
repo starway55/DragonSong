@@ -1,5 +1,5 @@
 public enum Type {
-    T1_16,
+    T1_16 (), // 用什么String表示，看你方便。
     T2_16,
     T4_16,
     T5_16,
@@ -30,6 +30,22 @@ public enum Type {
     T29_16,
     T30_16,
     T31_16,
-    T32_16,
+    T32_16;
+
+    private final String key;
+    private final int delay;
+
+    private Type (String key, int delay){
+        this.key = key;
+        this.delay = delay;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public int getDelay() {
+        return delay;
+    }
 
 }

@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.util.*;
 
 
@@ -34,16 +35,20 @@ public class Player extends Robot{
 
         Float afterKeyPress = msPerSyllable - 2 * keyboardDelay;
 
-        switch(s.getTune()){
-            case L1:
-        }
+        this.keyPress(KeyEvent.VK_ALT );
+        delay(20);
+        this.keyPress(s.getTune().getKey());
+
+        this.keyRelease(s.getTune().getKey());
+        delay(20);
+        this.keyRelease(KeyEvent.VK_ALT );
 
     }
 
-    public void delay(int delay){
+    public void delay(int delay) {
         try {
             Thread.sleep(delay);
-        } catch (InterruptedException e){
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
