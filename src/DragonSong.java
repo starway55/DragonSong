@@ -5,7 +5,9 @@ import java.awt.*;
 public class DragonSong {
 
     public static void main(String[] args) throws AWTException {
-        String text = "[-1.16][#1.16][+5.32][b2.16][+b6.18]";
+
+        String text = "[-1.1][#1.12][*3.1][+5.3][2.14][+6.16]";
+
 
         Player diao = new Player(100.0f, 20);
         diao.addSong(text, 100.0f);
