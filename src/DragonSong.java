@@ -14,18 +14,20 @@ public class DragonSong {
 
         delay(3000);
 
-        Syllable testSyllable = new Syllable(Tune.H1, Type.T16_16);
-
-        diao.pressKey(testSyllable);
-
-        diao.pressKey(testSyllable);
-
-        diao.pressKey(testSyllable);
-
-        diao.pressKey(testSyllable);
-
-        if(s.hasNextParagraph()) System.out.println(s.getCurrent());
-        if(s.hasNextParagraph()) System.out.println(s.getCurrent());
+        diao.play();
+//
+//        Syllable testSyllable = new Syllable(Tune.H1, Type.T16_16);
+//
+//        diao.pressKey(testSyllable);
+//
+//        diao.pressKey(testSyllable);
+//
+//        diao.pressKey(testSyllable);
+//
+//        diao.pressKey(testSyllable);
+//
+//        if(s.hasNextParagraph()) System.out.println(s.getCurrent());
+//        if(s.hasNextParagraph()) System.out.println(s.getCurrent());
     }
 
     public static void delay(int delay) {
