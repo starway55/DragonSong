@@ -3,19 +3,19 @@ import java.util.*;
 import java.util.regex.*;
 
 public class Song {
-    private int speed;
+    private Float speed;
     private String text;
     private String[] paragraphs;
     private int idx;
     public String syntax = "";
 
-    public Song(String text, int speed) {
+    public Song(String text, Float speed) {
         this.text = text;
         this.speed = speed;
         this.paragraphs = text.split("@{1}");
     }
 
-    public int getSpeed() {
+    public Float getSpeed() {
         return speed;
     }
 

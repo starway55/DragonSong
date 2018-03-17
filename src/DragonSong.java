@@ -11,14 +11,20 @@ public class DragonSong {
 //        player.addSong(text, 60);
 //        player.play();
 
-        Song s = new Song(songText, 100);
-        Player diao = new Player();
+        Song s = new Song(songText, 100.0f);
+        Player diao = new Player(100.0f, 20);
 
-        diao.addSong(songText, 100);
+        diao.addSong(songText, 100.0f);
 
         delay(3000);
 
-        Syllable testSyllable = new Syllable(Tune.H1, Type.T4_16);
+        Syllable testSyllable = new Syllable(Tune.H1, Type.T16_16);
+
+        diao.pressKey(testSyllable);
+
+        diao.pressKey(testSyllable);
+
+        diao.pressKey(testSyllable);
 
         diao.pressKey(testSyllable);
 
