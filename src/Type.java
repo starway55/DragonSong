@@ -49,4 +49,12 @@ public enum Type {
         return delay;
     }
 
+    public static Type get(String key) {
+        for(Type t: Type.values()) {
+            if(t.getKey().equals(key)) {
+                return t;
+            }
+        }
+        return null;
+    }
 }

@@ -6,14 +6,16 @@ import java.util.*;
 public class Player extends Robot{
     private ArrayList<Song> songs = new ArrayList<>();
 
-    private int currentSpeed;
+    private Float currentSpeed;
     private int keyboardDelay = 20;
 
-    public Player() throws AWTException {
+    public Player(Float currentSpeed, int keyboardDelay) throws AWTException {
+        this.currentSpeed = currentSpeed;
+        this.keyboardDelay = keyboardDelay;
     }
 
 
-    public void addSong(String text, int speed) {
+    public void addSong(String text, Float speed) {
         songs.add(new Song(text, speed));
     }
 
@@ -25,15 +27,15 @@ public class Player extends Robot{
         for(Song s: songs) {
             this.currentSpeed = s.getSpeed();
             ArrayList<Syllable> ls = s.getNextParagraph();
-            ls.forEach(this::pressKey);
+            for(Syllable sy: ls) {
+                pressKey(sy);
+            }
         }
     }
 
     public void pressKey(Syllable s) {
 
         Float msPerSyllable = 60.0f / currentSpeed;
-
-        Float afterKeyPress = msPerSyllable - 2 * keyboardDelay;
 
         if(s.getTune().getKey() == -1){
             delay(keyboardDelay); // When a break is passed in
@@ -49,7 +51,7 @@ public class Player extends Robot{
         }
 
         // The actual time in milliseconds that player should delay per whole syllable
-        int delayTime = 60 / currentSpeed * 1000 - 2 * keyboardDelay;
+        Float delayTime = 60 / currentSpeed * 1000 - 2 * keyboardDelay;
 
         delay( Math.round(delayTime * s.getType().getDelay()) );
 

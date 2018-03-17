@@ -67,4 +67,13 @@ public enum Tune {
     public int getKey() {
         return key;
     }
+
+    public static Tune get(String key) {
+        for(Tune t: Tune.values()) {
+            if(t.getSymbol().equals(key)) {
+                return t;
+            }
+        }
+        return null;
+    }
 }

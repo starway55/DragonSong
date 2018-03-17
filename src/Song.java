@@ -3,18 +3,19 @@ import java.util.*;
 import java.util.regex.*;
 
 public class Song {
-    private int speed;
+    private Float speed;
     private String text;
     private String[] paragraphs;
     private int idx;
+    private SongReader sr = new SongReader();
 
-    public Song(String text, int speed) {
+    public Song(String text, Float speed) {
         this.text = text;
         this.speed = speed;
         this.paragraphs = text.split("@{1}");
     }
 
-    public int getSpeed() {
+    public Float getSpeed() {
         return speed;
     }
 
@@ -33,7 +34,7 @@ public class Song {
 
     public ArrayList<Syllable> getNextParagraph() {
         ArrayList<Syllable> sl;
-        sl = SongReader.read(paragraphs[idx]);
+        sl = sr.read(paragraphs[idx]);
         idx++;
         return sl;
     }
@@ -41,17 +42,6 @@ public class Song {
 
 class SongReader {
     static final String SYNTAX = "\\[(\\+|-)?(\\#|b)?([1-7])(\\.)([0-9]{1,2})\\]";
-    static HashMap<String, Tune> tuneDict = new HashMap<>();
-    static HashMap<String, Type> typeDict = new HashMap<>();
-
-    public SongReader() {
-        for(Tune t: Tune.values()) {
-            tuneDict.put(t.getSymbol(), t);
-        }
-        for(Type t: Type.values()) {
-            typeDict.put(t.getKey(), t);
-        }
-    }
 
     public static ArrayList<Syllable> read(String text) {
 
@@ -67,8 +57,7 @@ class SongReader {
             for(i++ ; i <= m.groupCount(); i ++ ) {
                 if(m.group(i) != null) type.append(m.group(i));
             }
-//            System.out.println(tune + " " + type);
-            sl.add(new Syllable(tuneDict.get(tune), typeDict.get(type)));
+            sl.add(new Syllable(Tune.get(tune.toString()), Type.get(type.toString())));
         }
         return sl;
     }
