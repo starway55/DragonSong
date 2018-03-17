@@ -27,6 +27,14 @@ public class Player extends Robot{
 
     }
 
+    public void play(Song song){
+        ArrayList<Syllable> syllables = new ArrayList<>();
+
+        this.currentSpeed = song.getSpeed();
+        
+
+    }
+
     public void play() {
         ArrayList<Syllable> ls = new ArrayList<>();
         for(Song s: songs) {
