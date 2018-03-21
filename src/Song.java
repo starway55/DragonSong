@@ -1,8 +1,7 @@
-import java.awt.event.KeyEvent;
 import java.util.*;
-import java.util.regex.*;
 
-public abstract class Song {
+// TODO: make boundary clear, will not be responsible for handling Syllables
+public abstract class Song implements List<Paragraph> {
     protected Float speed;
     protected String text;
 

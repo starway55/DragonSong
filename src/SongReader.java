@@ -3,6 +3,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class SongReader {
+    // TODO: add syntax for unit test
+    // TODO: use external file for storage, no more data in source file
     static final String SYNTAX = "\\[(\\+|-|\\+\\+)?(#|b)?([1-7P])(\\.)([0-9]{1,2})\\]";
 
     public static ArrayList<Syllable> read(String text) {
