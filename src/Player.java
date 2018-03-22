@@ -9,7 +9,7 @@ public class Player extends Robot{
 
     private Float currentSpeed;
     private int keyboardDelay = 20;
-    private List<Syllable> toPlay;
+    private List<Syllable> toPlay = new ArrayList<>();
 
     public Player(Float currentSpeed, int keyboardDelay) throws AWTException {
         this.currentSpeed = currentSpeed;
@@ -32,10 +32,13 @@ public class Player extends Robot{
     public void play(Song song){
 
         this.currentSpeed = song.getSpeed();
-        this.toPlay = song.getSyllables();
-        for(Syllable sy: toPlay) {
+        this.toPlay.addAll(song.getSyllables());
+
+        for(Syllable sy: this.toPlay) {
             pressKey(sy);
         }
+
+
     }
 
     public void play(Paragraph paragraph){
@@ -89,10 +92,12 @@ public class Player extends Robot{
             this.keyRelease(s.getTune().getKey());
             delay(keyboardDelay);
             this.keyRelease(KeyEvent.VK_ALT );
+
+            delay(keyboardDelay);
         }
 
         // The actual time in milliseconds that player should delay per whole syllable
-        Float delayTime = 60 / currentSpeed * 1000 - 2 * keyboardDelay;
+        Float delayTime = 60 / currentSpeed * 1000 - 3 * keyboardDelay;
 
         delay( Math.round(delayTime * s.getType().getDelay()) );
 

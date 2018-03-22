@@ -6,7 +6,7 @@ public class DragonSong {
 
     public static void main(String[] args) throws AWTException {
 
-//        String text = "[3.16][5.16][6.16][3.16][5.16][6.16]";
+        String text = "[3.16][5.16][6.16][3.16][5.16][6.16]";
 
 //        SongList songList = new SongList();
 
@@ -17,7 +17,10 @@ public class DragonSong {
         Player diao = new Player(100.0f, 20);
 
         TheOriginalSong theSong = new TheOriginalSong();
-        diao.play(theSong);
+
+        YangGuangZhaiNan yangGuangZhaiNan = new YangGuangZhaiNan();
+
+        diao.play(yangGuangZhaiNan);
 
 
 

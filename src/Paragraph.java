@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -5,7 +6,7 @@ public class Paragraph{
 
     private Float speed;
     private String toPlay;
-    private List<Sentence> sentences;
+    private List<Sentence> sentences = new ArrayList<>();
 
     public Paragraph(){
 

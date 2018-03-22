@@ -1,12 +1,13 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Sentence {
 
     private Float speed;
     private String toPlay;
-    private List<String> texts;
+    private List<String> texts = new ArrayList<>();
 
-    private void addText(String text){
+    public void addText(String text){
         texts.add(text);
     }
 

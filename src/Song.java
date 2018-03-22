@@ -6,7 +6,7 @@ public abstract class Song {
     protected Float speed;
     protected String text;
 
-    protected List<Paragraph> paragraphs;
+    protected List<Paragraph> paragraphs = new ArrayList<>();
 
 
     //    private String[] paragraphs;
@@ -36,8 +36,8 @@ public abstract class Song {
                 this.text = this.text + paragraph.play();
             }
             List<Syllable> syllables = SongReader.read(this.text);
+            return syllables;
         }
-        return null;
     }
 
     public Float getSpeed() {

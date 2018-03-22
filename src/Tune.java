@@ -21,7 +21,7 @@ public enum Tune {
     LU5 ("-#5", KeyEvent.VK_L),
     L6 ("-6", KeyEvent.VK_SEMICOLON),
     LD7 ("-b7", KeyEvent.VK_QUOTE),
-    L7 ("-7", KeyEvent.VK_SLASH),
+    L7 ("-7", KeyEvent.VK_BACK_SLASH),
 
     M1 ("1", KeyEvent.VK_Q),
     MU1 ("#1", KeyEvent.VK_W),
