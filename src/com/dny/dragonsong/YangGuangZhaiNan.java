@@ -1,7 +1,5 @@
 package com.dny.dragonsong;
 
-import com.dragonsong.help.Song;
-
 import java.util.List;
 
 public class YangGuangZhaiNan extends Song {
