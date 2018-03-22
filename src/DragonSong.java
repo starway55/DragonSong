@@ -16,8 +16,8 @@ public class DragonSong {
 
         Player diao = new Player(100.0f, 20);
 
-        TheOriginalSong theSong = new TheOriginalSong();
-        diao.play(theSong);
+//        TheOriginalSong theSong = new TheOriginalSong();
+//        diao.play(theSong);
 
 
 

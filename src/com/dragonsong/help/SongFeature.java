@@ -1,3 +1,5 @@
+package com.dragonsong.help;
+
 import java.lang.annotation.*;
 
 @Target({ ElementType.TYPE })
@@ -5,4 +7,5 @@ import java.lang.annotation.*;
 public @interface SongFeature {
     public String name() default "untitled";
     public int speed();
+    public boolean testMode() default false;
 }
