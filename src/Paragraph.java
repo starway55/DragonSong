@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
+// TODO: will become an inner class of Song, have public access
 public class Paragraph{
 
     private Float speed;

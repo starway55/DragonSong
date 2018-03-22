@@ -16,30 +16,13 @@ public class DragonSong {
 
         Player diao = new Player(100.0f, 20);
 
+
         TheOriginalSong theSong = new TheOriginalSong();
 
-        YangGuangZhaiNan yangGuangZhaiNan = new YangGuangZhaiNan();
 
-        diao.play(yangGuangZhaiNan);
-
+        diao.play(theSong);
 
 
-//        for(Tune t: Tune.values()) {
-//            System.out.println(t.getSymbol());
-//        }
-//
-//        Syllable testSyllable = new Syllable(Tune.H1, Type.T16_16);
-//
-//        diao.pressKey(testSyllable);
-//
-//        diao.pressKey(testSyllable);
-//
-//        diao.pressKey(testSyllable);
-//
-//        diao.pressKey(testSyllable);
-//
-//        if(s.hasNextParagraph()) System.out.println(s.getCurrent());
-//        if(s.hasNextParagraph()) System.out.println(s.getCurrent());
     }
 
     public static void delay(int delay) {
