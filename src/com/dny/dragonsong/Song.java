@@ -1,7 +1,9 @@
+package com.dny.dragonsong;
+
 import java.util.*;
 
 // TODO: make boundary clear, will not be responsible for handling Syllables
-public abstract class Song implements List<Paragraph> {
+public abstract class Song {
     protected Float speed;
     protected String text;
 

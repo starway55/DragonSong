@@ -1,4 +1,4 @@
-// Main entry point
+package com.dny.dragonsong;// Main entry point
 
 import java.awt.*;
 

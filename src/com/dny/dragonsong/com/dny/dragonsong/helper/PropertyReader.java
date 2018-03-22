@@ -1,6 +1,6 @@
 // reading property file and set up program
 
-package com.dragonsong.help;
+package com.dny.dragonsong.com.dny.dragonsong.helper;
 
 import javax.xml.bind.PropertyException;
 import java.io.*;

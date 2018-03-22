@@ -1,3 +1,5 @@
+package com.dny.dragonsong;
+
 public enum Type {
     T1_16 ("1", 1.0f/16.0f ), // 用什么String表示，看你方便。
     T2_16 ("2", 2.0f/16.0f),

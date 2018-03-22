@@ -1,10 +1,13 @@
+package com.dny.dragonsong;
+
+import com.dragonsong.help.Song;
 
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-public class TheOriginalSong extends Song{
+public class TheOriginalSong extends Song {
 
     public List<Paragraph> paragraphs;
 
